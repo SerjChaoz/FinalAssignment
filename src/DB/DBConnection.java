@@ -125,14 +125,17 @@ public class DBConnection {
                 stat = conn.createStatement();
                 rs = stat.executeQuery("SELECT * FROM Login WHERE login = `" + 
                         login + "` AND password = `" + password + "` LIMIT 1");
-                
+
                 if(rs != null) {
                     // create customer object, we need to move it to another location,
                     // not the best place to create customer object
-                    userLogged = new Customer(rs.getString("login"),rs.getInt("custID"),rs.getBoolean("admin"));    
+                    userLogged = new Customer(rs.getString("login"),rs.getInt("custID"),rs.getBoolean("admin"));
+                    newLogin(rs.getInt("custID"));
+                    
                 } else {
                         JOptionPane.showMessageDialog(null, "Your Credentials were invalid. Please try again!");
                 }
+                rs.close();
             }
         } catch (SQLException error) {
             JOptionPane.showMessageDialog(null, "Your Credentials were invalid. Please try again!");
@@ -145,5 +148,13 @@ public class DBConnection {
         }
         
         return false;
+    }
+
+    // this method insert new record to Login table with custID that logged into system
+    private void newLogin(int custID) {
+        
+        // query should be like
+        // INSERT INTO `Login` (`custID`) VALUES (`custID`)
+        
     }
 }
