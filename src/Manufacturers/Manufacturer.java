@@ -2,10 +2,11 @@ package Manufacturers;
 
 public class Manufacturer {
 
-    private int _ID;
+    private final int _manufacturerID;
     private String _name, _country, _description;
 
-    public Manufacturer(String name, String country, String description) {
+    public Manufacturer(int manufacturerID, String name, String country, String description) {
+        this._manufacturerID = manufacturerID;
         this._name = name;
         this._country = country;
         this._description = description;
@@ -22,6 +23,10 @@ public class Manufacturer {
 
     public String getDescription() {
         return _description;
+    }
+    
+    public int getManufacturerID() {
+        return _manufacturerID;
     }
 
     //mutators

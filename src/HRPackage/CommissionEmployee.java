@@ -4,11 +4,13 @@ import HRPackage.PayStyles.PayCommission;
 
 public class CommissionEmployee extends Employee implements PayCommission {
 
+    
     private double _sales, _commissionRate;
 
     /**
      * constructor for a new hire employee
      *
+     * @param empID
      * @param firstName
      * @param lastName
      * @param address
@@ -24,19 +26,21 @@ public class CommissionEmployee extends Employee implements PayCommission {
      * @param yearBirth
      * @param monthBirth
      * @param MonthBirth
+     * @param commissionRate
      */
-    public CommissionEmployee(String firstName, String lastName, String address, String phoneNumber,
+    public CommissionEmployee(int empID, String firstName, String lastName, String address, String phoneNumber,
             String gender, String position, String department, int sinNumber, double earnings,
             int yearHire, int monthHire, int dayHire, int yearBirth, int monthBirth, int MonthBirth,
             double commissionRate) {
 
-        super(firstName, lastName, address, phoneNumber, gender, position, department, sinNumber,
+        super(empID, firstName, lastName, address, phoneNumber, gender, position, department, sinNumber,
                 earnings, yearHire, monthHire, dayHire, yearBirth, monthBirth, MonthBirth);
     }
 
     /**
      * constructor for a future hire employee
      *
+     * @param empID
      * @param firstName
      * @param lastName
      * @param address
@@ -47,12 +51,13 @@ public class CommissionEmployee extends Employee implements PayCommission {
      * @param yearBirth
      * @param monthBirth
      * @param dayBirth
+     * @param commissionRate
      */
-    public CommissionEmployee(String firstName, String lastName, String address, String phoneNumber,
+    public CommissionEmployee(int empID, String firstName, String lastName, String address, String phoneNumber,
             String gender, String position, int sinNumber, int yearBirth, int monthBirth, int dayBirth,
             double commissionRate) {
 
-        super(firstName, lastName, address, phoneNumber, gender, position, sinNumber, yearBirth, monthBirth, dayBirth);
+        super(empID, firstName, lastName, address, phoneNumber, gender, position, sinNumber, yearBirth, monthBirth, dayBirth);
         this._commissionRate = commissionRate;
     }
 

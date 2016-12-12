@@ -10,7 +10,8 @@ public abstract class Employee {
 
     // variables declaired on boot (super class variables)
     private String _firstName, _lastName, _position, _gender, _department;
-    private int _empId, _sinNumber;
+    private final int _empId;
+    private int _sinNumber;
 
     private GregorianCalendar _dateOfBirth, _dateOfHire;
 
@@ -22,6 +23,7 @@ public abstract class Employee {
     /**
      * constructor for a hired employee.
      *
+     * @param empId
      * @param firstName
      * @param lastName
      * @param address
@@ -38,7 +40,7 @@ public abstract class Employee {
      * @param monthBirth
      * @param MonthBirth
      */
-    public Employee(String firstName, String lastName, String address,
+    public Employee(int empId, String firstName, String lastName, String address,
             String phoneNumber, String gender, String position, String department,
             int sinNumber,
             double earnings,
@@ -46,7 +48,7 @@ public abstract class Employee {
             int yearBirth, int monthBirth, int MonthBirth
     ) {
 
-        this(firstName, lastName, address, phoneNumber, gender,
+        this(empId, firstName, lastName, address, phoneNumber, gender,
                 position, sinNumber,
                 yearBirth, monthBirth, MonthBirth
         );
@@ -61,6 +63,7 @@ public abstract class Employee {
      * Creates the abstract class for employees that the subclass children, used
      * for creating a employee object has not been hired. reference;
      *
+     * @param empId
      * @param firstName
      * @param lastName
      * @param address
@@ -72,10 +75,11 @@ public abstract class Employee {
      * @param monthBirth
      * @param dayBirth
      */
-    public Employee(String firstName, String lastName, String address,
+    public Employee(int empId, String firstName, String lastName, String address,
             String phoneNumber, String gender, String position,
             int sinNumber,
             int yearBirth, int monthBirth, int dayBirth) {
+        this._empId = empId;
         this._firstName = firstName;
         this._lastName = lastName;
         this._gender = gender;
@@ -275,10 +279,6 @@ public abstract class Employee {
      */
     public void setGender(String _gender) {
         this._gender = _gender;
-    }
-
-    public void setEmpId(int _empId) {
-        this._empId = _empId;
     }
 
     public void setSinNumber(int _sinNumber) {

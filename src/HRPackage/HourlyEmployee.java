@@ -9,6 +9,7 @@ public class HourlyEmployee extends Employee implements PayHourly {
     /**
      * setup method for an hourly employee that has been hired.
      *
+     * @param empID
      * @param firstName
      * @param lastName
      * @param address
@@ -26,18 +27,19 @@ public class HourlyEmployee extends Employee implements PayHourly {
      * @param MonthBirth
      * @param payRate
      */
-    public HourlyEmployee(String firstName, String lastName, String address, String phoneNumber,
+    public HourlyEmployee(int empID, String firstName, String lastName, String address, String phoneNumber,
             String gender, String position, String department, int sinNumber, double earnings,
             int yearHire, int monthHire, int dayHire, int yearBirth, int monthBirth, int MonthBirth,
             double payRate) {
 
-        super(firstName, lastName, address, phoneNumber, gender, position, department, sinNumber, earnings, yearHire, monthHire, dayHire, yearBirth, monthBirth, MonthBirth);
+        super(empID, firstName, lastName, address, phoneNumber, gender, position, department, sinNumber, earnings, yearHire, monthHire, dayHire, yearBirth, monthBirth, MonthBirth);
         this._payRate = payRate;
     }
 
     /**
      * Set up file for a hourly employee object that has yet to be hired.
      *
+     * @param empID
      * @param firstName
      * @param lastName
      * @param address
@@ -48,11 +50,12 @@ public class HourlyEmployee extends Employee implements PayHourly {
      * @param yearBirth
      * @param monthBirth
      * @param dayBirth
+     * @param payRate
      */
-    public HourlyEmployee(String firstName, String lastName, String address, String phoneNumber,
+    public HourlyEmployee(int empID, String firstName, String lastName, String address, String phoneNumber,
             String gender, String position, int sinNumber, int yearBirth, int monthBirth, int dayBirth,
             double payRate) {
-        super(firstName, lastName, address, phoneNumber, gender, position, sinNumber, yearBirth, monthBirth, dayBirth);
+        super(empID, firstName, lastName, address, phoneNumber, gender, position, sinNumber, yearBirth, monthBirth, dayBirth);
         this._payRate = payRate;
     }
 

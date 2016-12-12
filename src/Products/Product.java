@@ -4,20 +4,23 @@ import Manufacturers.Manufacturer;
 
 public class Product {
 
+    private final int _productID;
     private double _price, _rating, _productionCost;
     private String _description, _name;
-
+    
     private Manufacturer _manufacturer;
 
     /**
      * Short constructor for general products.
      *
+     * @param productID
      * @param name
      * @param price
      * @param productionCost
      * @param manufacturer
      */
-    public Product(String name, double price, double productionCost, Manufacturer manufacturer) {
+    public Product(int productID, String name, double price, double productionCost, Manufacturer manufacturer) {
+        this._productID = productID;
         this._name = name;
         this._price = price;
         this._productionCost = productionCost;
@@ -27,6 +30,7 @@ public class Product {
     /**
      * Extended constructor for added functionality.
      *
+     * @param productID
      * @param name
      * @param price
      * @param productionCost
@@ -34,9 +38,9 @@ public class Product {
      * @param rating
      * @param description
      */
-    public Product(String name, double price, double productionCost, Manufacturer manufacturer,
+    public Product(int productID, String name, double price, double productionCost, Manufacturer manufacturer,
             double rating, String description) {
-        this(name, price, productionCost, manufacturer);
+        this(productID, name, price, productionCost, manufacturer);
         this._description = description;
         this._rating = rating;
     }
@@ -64,6 +68,10 @@ public class Product {
 
     public Manufacturer getManufacturer() {
         return _manufacturer;
+    }
+    
+    public int getProductID() {
+        return _productID;
     }
 
     public void setPrice(double _price) {
